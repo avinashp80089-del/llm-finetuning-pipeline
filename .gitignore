@@ -1,0 +1,34 @@
+__pycache__/
+*.pyc
+*.pyo
+.env
+.venv/
+venv/
+env/
+
+# model weights and adapters (too large for git)
+outputs/
+*.bin
+*.safetensors
+*.gguf
+*.pt
+*.pth
+
+# W&B
+wandb/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+
+# data (keep sample files, exclude raw/large)
+data/raw/
+data/*.parquet
+data/*.arrow

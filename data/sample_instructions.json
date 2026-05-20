@@ -1,0 +1,257 @@
+[
+  {
+    "instruction": "Explain what a transformer model is in simple terms.",
+    "input": "",
+    "output": "A transformer is a neural network that processes sequences by paying attention to different parts of the input simultaneously. Unlike older models that read left-to-right, transformers look at the entire sequence at once using a mechanism called self-attention, which lets the model learn which words or tokens are most relevant to each other. This parallelism makes training faster and helps the model capture long-range dependencies that earlier architectures like RNNs struggled with."
+  },
+  {
+    "instruction": "What is the difference between supervised and unsupervised learning?",
+    "input": "",
+    "output": "Supervised learning trains on labeled data — each example has an input and a known correct output. The model learns a mapping from inputs to outputs by minimizing prediction error. Unsupervised learning finds structure in unlabeled data, such as grouping similar examples together (clustering) or learning compressed representations (autoencoders). The key distinction is whether ground-truth labels are available during training."
+  },
+  {
+    "instruction": "Write a Python function to compute the Fibonacci sequence up to n terms.",
+    "input": "",
+    "output": "def fibonacci(n):\n    if n <= 0:\n        return []\n    seq = [0, 1]\n    while len(seq) < n:\n        seq.append(seq[-1] + seq[-2])\n    return seq[:n]"
+  },
+  {
+    "instruction": "Summarize the following paragraph.",
+    "input": "Large language models (LLMs) have transformed natural language processing by enabling machines to generate coherent text, answer questions, translate languages, and write code. These models, trained on massive corpora, learn statistical patterns in language that generalize across tasks without task-specific training data.",
+    "output": "Large language models have revolutionized NLP by learning general language patterns from large datasets, allowing them to perform diverse tasks like text generation, translation, and coding without task-specific training."
+  },
+  {
+    "instruction": "Explain gradient descent in machine learning.",
+    "input": "",
+    "output": "Gradient descent is an optimization algorithm that minimizes a loss function by iteratively adjusting model parameters in the direction of the negative gradient. At each step, you compute how much each parameter contributes to the error, then nudge them slightly in the direction that reduces the loss. The learning rate controls step size — too large and the model overshoots; too small and training is slow. Variants like SGD, Adam, and RMSProp modify this basic idea to converge faster or more reliably."
+  },
+  {
+    "instruction": "What is overfitting and how do you prevent it?",
+    "input": "",
+    "output": "Overfitting occurs when a model memorizes the training data too closely, capturing noise rather than the underlying pattern. It shows as high training accuracy but poor performance on new data. Common prevention strategies include: regularization (L1/L2 weight penalties), dropout (randomly deactivating neurons during training), data augmentation, early stopping when validation loss starts rising, and collecting more training data."
+  },
+  {
+    "instruction": "Write a SQL query to find the top 5 customers by total purchase amount.",
+    "input": "Table: orders (customer_id, order_amount, order_date)",
+    "output": "SELECT customer_id, SUM(order_amount) AS total_spent\nFROM orders\nGROUP BY customer_id\nORDER BY total_spent DESC\nLIMIT 5;"
+  },
+  {
+    "instruction": "What is transfer learning?",
+    "input": "",
+    "output": "Transfer learning is the practice of reusing a model trained on one task as the starting point for a different but related task. Instead of training from random weights, you start from a pretrained model that already understands general features — like edges in images or grammar in text — and fine-tune it on your specific dataset. This dramatically reduces training time and data requirements, especially when labeled data for your task is scarce."
+  },
+  {
+    "instruction": "Explain the concept of attention in neural networks.",
+    "input": "",
+    "output": "Attention allows a model to dynamically focus on different parts of the input when producing each output. For each output token, the model computes a score against every input position, normalizes these scores into weights via softmax, then takes a weighted sum of input representations. This lets the model learn which inputs are relevant for each output rather than compressing everything into a fixed-size vector, which is especially powerful for long sequences."
+  },
+  {
+    "instruction": "What is the difference between precision and recall?",
+    "input": "",
+    "output": "Precision measures how many of the model's positive predictions were actually correct: true positives / (true positives + false positives). Recall measures how many of the actual positives the model caught: true positives / (true positives + false negatives). High precision means few false alarms; high recall means few missed detections. They trade off against each other — tightening a classifier's threshold raises precision but lowers recall."
+  },
+  {
+    "instruction": "Write a Python function to check if a string is a palindrome.",
+    "input": "",
+    "output": "def is_palindrome(s):\n    cleaned = ''.join(c.lower() for c in s if c.isalnum())\n    return cleaned == cleaned[::-1]"
+  },
+  {
+    "instruction": "Explain the bias-variance tradeoff.",
+    "input": "",
+    "output": "Bias is the error from wrong assumptions — a high-bias model is too simple and consistently wrong in the same direction (underfitting). Variance is sensitivity to noise in training data — a high-variance model is too complex and varies wildly with different training sets (overfitting). The tradeoff: reducing bias usually increases variance and vice versa. Ensemble methods like random forests help balance both by combining many models."
+  },
+  {
+    "instruction": "What is a confusion matrix?",
+    "input": "",
+    "output": "A confusion matrix is a table that summarizes classification model performance by comparing predicted versus actual labels. For a binary classifier it has four cells: true positives (correctly predicted positive), true negatives (correctly predicted negative), false positives (predicted positive but actually negative), and false negatives (predicted negative but actually positive). From it you derive metrics like accuracy, precision, recall, F1, and specificity."
+  },
+  {
+    "instruction": "Write a function to flatten a nested list in Python.",
+    "input": "",
+    "output": "def flatten(lst):\n    result = []\n    for item in lst:\n        if isinstance(item, list):\n            result.extend(flatten(item))\n        else:\n            result.append(item)\n    return result"
+  },
+  {
+    "instruction": "What is the purpose of batch normalization?",
+    "input": "",
+    "output": "Batch normalization normalizes the activations of each layer to have zero mean and unit variance across a mini-batch, then applies learnable scale and shift parameters. This stabilizes training by reducing internal covariate shift — the changing distribution of layer inputs as weights update. In practice it allows higher learning rates, reduces sensitivity to weight initialization, and often acts as mild regularization."
+  },
+  {
+    "instruction": "Explain what an API is to a non-technical audience.",
+    "input": "",
+    "output": "An API (Application Programming Interface) is like a waiter in a restaurant. You don't go into the kitchen to make your food; instead you tell the waiter what you want, and they communicate with the kitchen on your behalf and bring back your order. In software, an API is the messenger that lets two programs talk to each other — your app sends a request, the API delivers it to another service, and returns the response, without you needing to know how that service works internally."
+  },
+  {
+    "instruction": "What is the difference between a list and a tuple in Python?",
+    "input": "",
+    "output": "Both store ordered collections of items, but lists are mutable (you can add, remove, or change elements) while tuples are immutable (fixed after creation). Tuples are slightly faster and use less memory. By convention, use lists for homogeneous collections that may change, and tuples for heterogeneous records that should stay fixed — like a coordinate (x, y) or a database row."
+  },
+  {
+    "instruction": "Explain the concept of tokenization in NLP.",
+    "input": "",
+    "output": "Tokenization splits raw text into discrete units (tokens) that a model can process. Word tokenization splits on spaces and punctuation. Subword tokenization methods like BPE and WordPiece break rare words into smaller pieces, letting the vocabulary cover virtually any text while keeping it to a manageable size — typically 30k-100k tokens. Each token maps to an integer ID that the model embeds into a dense vector."
+  },
+  {
+    "instruction": "How does a decision tree make predictions?",
+    "input": "",
+    "output": "A decision tree makes predictions by asking a series of yes/no questions about the input features, following a path from the root to a leaf node. At each internal node, the tree tests one feature against a threshold and branches left or right depending on the answer. The leaf reached at the end of the path holds the predicted class (or value for regression). The tree is trained by choosing splits that maximize the purity of resulting subsets, measured by Gini impurity or information gain."
+  },
+  {
+    "instruction": "Write a Python class for a simple stack data structure.",
+    "input": "",
+    "output": "class Stack:\n    def __init__(self):\n        self._data = []\n\n    def push(self, item):\n        self._data.append(item)\n\n    def pop(self):\n        if not self._data:\n            raise IndexError('pop from empty stack')\n        return self._data.pop()\n\n    def peek(self):\n        if not self._data:\n            raise IndexError('peek at empty stack')\n        return self._data[-1]\n\n    def __len__(self):\n        return len(self._data)\n\n    def is_empty(self):\n        return len(self._data) == 0"
+  },
+  {
+    "instruction": "What is the purpose of dropout in neural networks?",
+    "input": "",
+    "output": "Dropout randomly disables a fraction of neurons during each training step, forcing the network to learn redundant representations and preventing co-adaptation between neurons. At inference time, all neurons are active but their outputs are scaled down to match expected values. This acts as an ensemble of many different network architectures, improving generalization and reducing overfitting — particularly effective in large networks trained on limited data."
+  },
+  {
+    "instruction": "Explain the difference between ETL and ELT.",
+    "input": "",
+    "output": "ETL (Extract, Transform, Load) transforms data before loading it into the destination, which was ideal when storage was expensive and compute happened on dedicated servers. ELT (Extract, Load, Transform) loads raw data first then transforms it inside the destination system — typically a cloud data warehouse like BigQuery or Snowflake. ELT is now preferred because cloud warehouses can handle large-scale transformations cheaply and you retain the raw data for future reprocessing."
+  },
+  {
+    "instruction": "What is the difference between a primary key and a foreign key in SQL?",
+    "input": "",
+    "output": "A primary key uniquely identifies each row in a table — it must be unique and non-null. A foreign key is a column in one table that references the primary key of another table, establishing a relationship between the two. Primary keys enforce row uniqueness; foreign keys enforce referential integrity, ensuring you can't insert a value that doesn't exist in the referenced table."
+  },
+  {
+    "instruction": "Write a Python function to count word frequencies in a string.",
+    "input": "",
+    "output": "from collections import Counter\n\ndef word_frequencies(text):\n    words = text.lower().split()\n    return dict(Counter(words))"
+  },
+  {
+    "instruction": "What is cross-validation and why is it used?",
+    "input": "",
+    "output": "Cross-validation is a technique for estimating model performance on unseen data. In k-fold cross-validation, the dataset is split into k equal subsets (folds). The model is trained on k-1 folds and evaluated on the remaining fold, repeating this k times with each fold serving as the validation set once. The average performance across folds gives a more reliable estimate than a single train/test split, and it makes efficient use of limited data."
+  },
+  {
+    "instruction": "Explain what a microservice architecture is.",
+    "input": "",
+    "output": "A microservice architecture structures an application as a collection of small, independently deployable services, each responsible for a specific business capability. Services communicate over lightweight protocols like HTTP or messaging queues. This contrasts with a monolithic architecture where all functionality lives in one codebase. Microservices allow teams to deploy, scale, and update services independently, but introduce operational complexity around service discovery, network latency, and distributed tracing."
+  },
+  {
+    "instruction": "What is the purpose of a learning rate scheduler?",
+    "input": "",
+    "output": "A learning rate scheduler adjusts the learning rate during training according to a predefined schedule. Starting high allows fast initial progress; decaying the rate as training progresses allows fine-grained convergence near the optimum. Common schedules include step decay (reduce by a factor every N epochs), cosine annealing (smooth decay following a cosine curve), and warmup (start very low then ramp up to avoid instability from poor initial weights)."
+  },
+  {
+    "instruction": "Write a SQL query to calculate a 7-day rolling average of daily sales.",
+    "input": "Table: sales (sale_date DATE, amount NUMERIC)",
+    "output": "SELECT\n    sale_date,\n    amount,\n    AVG(amount) OVER (\n        ORDER BY sale_date\n        ROWS BETWEEN 6 PRECEDING AND CURRENT ROW\n    ) AS rolling_7d_avg\nFROM sales\nORDER BY sale_date;"
+  },
+  {
+    "instruction": "What is the difference between L1 and L2 regularization?",
+    "input": "",
+    "output": "L1 regularization (Lasso) adds the sum of absolute weight values to the loss, which tends to drive unimportant weights to exactly zero — effectively performing feature selection. L2 regularization (Ridge) adds the sum of squared weight values, which shrinks all weights toward zero but rarely to exactly zero. L1 produces sparse models; L2 distributes penalty more evenly. Elastic Net combines both."
+  },
+  {
+    "instruction": "Explain the concept of a data pipeline.",
+    "input": "",
+    "output": "A data pipeline is a series of automated processes that move and transform data from one or more sources to a destination. Typical stages include ingestion (extracting data from APIs, databases, or files), transformation (cleaning, enriching, aggregating), validation (checking for quality and schema compliance), and loading (writing to a data warehouse, lake, or serving layer). Pipelines are orchestrated by tools like Apache Airflow or Prefect to handle scheduling, retries, and monitoring."
+  },
+  {
+    "instruction": "What is a random forest and how does it work?",
+    "input": "",
+    "output": "A random forest trains many decision trees on random subsets of the training data (bagging) and random subsets of features at each split. At prediction time, each tree votes, and the majority class (or average for regression) wins. The randomness ensures the trees are decorrelated — even if individual trees overfit, their errors cancel out in the ensemble, producing a model with low variance and good generalization."
+  },
+  {
+    "instruction": "Describe how you would approach a binary classification problem.",
+    "input": "",
+    "output": "1. Explore the data: check class balance, feature distributions, missing values, and correlations. 2. Preprocess: handle nulls, encode categoricals, scale numerics if needed. 3. Handle imbalance if present with SMOTE, class weights, or resampling. 4. Baseline with logistic regression or decision tree to understand signal. 5. Benchmark stronger models (XGBoost, LightGBM, RandomForest). 6. Tune hyperparameters on validation set using cross-validation. 7. Select threshold based on business metric (precision, recall, or F1). 8. Evaluate on held-out test set and check for data drift before deployment."
+  },
+  {
+    "instruction": "What is the purpose of the LoRA technique in LLM fine-tuning?",
+    "input": "",
+    "output": "LoRA (Low-Rank Adaptation) fine-tunes LLMs by injecting small trainable rank-decomposition matrices into each transformer layer while keeping the original weights frozen. Instead of updating all billions of parameters, you only train the low-rank matrices — often less than 1% of total parameters. This drastically reduces memory and compute requirements while achieving performance close to full fine-tuning. The adapter weights can be swapped at inference time to support multiple tasks on the same base model."
+  },
+  {
+    "instruction": "Write a Python generator function that yields prime numbers indefinitely.",
+    "input": "",
+    "output": "def primes():\n    seen = []\n    n = 2\n    while True:\n        if all(n % p != 0 for p in seen):\n            seen.append(n)\n            yield n\n        n += 1"
+  },
+  {
+    "instruction": "What is the difference between OLTP and OLAP databases?",
+    "input": "",
+    "output": "OLTP (Online Transaction Processing) databases are optimized for high-volume, low-latency reads and writes of individual rows — typical of application backends handling user actions. They use row-oriented storage and are normalized to reduce redundancy. OLAP (Online Analytical Processing) databases are optimized for complex aggregations over large datasets — typical of analytics workloads. They use columnar storage, which is faster for reading many rows of a single column, and are often denormalized for query performance."
+  },
+  {
+    "instruction": "Explain what a vector embedding is.",
+    "input": "",
+    "output": "A vector embedding is a dense numerical representation of data (words, sentences, images, etc.) in a high-dimensional space. Semantically similar items end up close together in this space — for example, 'king' and 'queen' have similar embeddings because they appear in similar contexts. Embeddings are learned by neural networks during training: the model discovers which geometric relationships best predict the training objective. They're the foundation for semantic search, recommendation systems, and RAG (retrieval-augmented generation)."
+  },
+  {
+    "instruction": "What is the purpose of the softmax function?",
+    "input": "",
+    "output": "Softmax converts a vector of raw scores (logits) into a probability distribution: it exponentiates each value and divides by the sum of all exponentiated values, ensuring outputs are positive and sum to 1. In classification, the class with the highest softmax output is the prediction. In attention mechanisms, softmax normalizes attention scores into weights so the model can take a weighted average of value vectors."
+  },
+  {
+    "instruction": "Write a Python function to merge two sorted lists.",
+    "input": "",
+    "output": "def merge_sorted(a, b):\n    result = []\n    i = j = 0\n    while i < len(a) and j < len(b):\n        if a[i] <= b[j]:\n            result.append(a[i])\n            i += 1\n        else:\n            result.append(b[j])\n            j += 1\n    result.extend(a[i:])\n    result.extend(b[j:])\n    return result"
+  },
+  {
+    "instruction": "Explain what feature engineering is.",
+    "input": "",
+    "output": "Feature engineering transforms raw data into inputs that make it easier for a model to learn the target pattern. It includes creating new features from existing ones (e.g., extracting day-of-week from a timestamp), encoding categorical variables (one-hot, target encoding), scaling numeric features to a common range, handling missing values, and capturing domain-specific relationships (e.g., ratio of two financial metrics). Good feature engineering often matters more than model choice."
+  },
+  {
+    "instruction": "What is the significance of the learning rate in training neural networks?",
+    "input": "",
+    "output": "The learning rate controls how large a step the optimizer takes in the direction of the negative gradient at each update. Too high and updates overshoot the optimum, causing oscillation or divergence. Too low and training converges very slowly or gets stuck in local minima. Finding the right learning rate is one of the most impactful hyperparameter choices — techniques like learning rate warmup, cyclical rates, and schedulers help navigate this tradeoff during training."
+  },
+  {
+    "instruction": "What is data augmentation and when is it useful?",
+    "input": "",
+    "output": "Data augmentation creates new training examples by applying transformations to existing ones — for images this might be flipping, cropping, color jitter, or rotation; for text it could be synonym replacement, back-translation, or paraphrasing. It's most useful when labeled data is scarce: augmentation artificially expands the training set and exposes the model to more variation, improving robustness. It also acts as regularization by making the model invariant to the applied transformations."
+  },
+  {
+    "instruction": "Write a Python function to find all duplicates in a list.",
+    "input": "",
+    "output": "def find_duplicates(lst):\n    seen = set()\n    duplicates = set()\n    for item in lst:\n        if item in seen:\n            duplicates.add(item)\n        seen.add(item)\n    return list(duplicates)"
+  },
+  {
+    "instruction": "What is the difference between bagging and boosting?",
+    "input": "",
+    "output": "Bagging (Bootstrap Aggregating) trains multiple models independently on random subsets of the data and averages their predictions. It reduces variance — each model overfits differently, so errors cancel out. Random Forest is the canonical example. Boosting trains models sequentially, each one focusing on the mistakes of the previous one. It reduces bias by iteratively correcting errors. XGBoost and LightGBM are boosting algorithms. Bagging parallelizes easily; boosting is sequential but often more accurate on structured data."
+  },
+  {
+    "instruction": "Explain the CAP theorem.",
+    "input": "",
+    "output": "The CAP theorem states that a distributed data store can provide at most two of three guarantees simultaneously: Consistency (every read receives the most recent write), Availability (every request receives a response, though it may not be the most recent), and Partition tolerance (the system continues operating even if network partitions occur). Since partitions are unavoidable in real distributed systems, the practical choice is between CP systems (consistent under partition, may reject requests) and AP systems (available under partition, may return stale data)."
+  },
+  {
+    "instruction": "What is the purpose of activation functions in neural networks?",
+    "input": "",
+    "output": "Activation functions introduce non-linearity into neural networks. Without them, stacking multiple linear layers would still produce a linear function — no matter how deep the network, it couldn't learn non-linear patterns. Activation functions like ReLU, GELU, and sigmoid allow networks to approximate arbitrarily complex functions. ReLU (max(0,x)) is most common in hidden layers because it's fast to compute and avoids vanishing gradients in deep networks."
+  },
+  {
+    "instruction": "Write a Python function to implement binary search.",
+    "input": "",
+    "output": "def binary_search(arr, target):\n    lo, hi = 0, len(arr) - 1\n    while lo <= hi:\n        mid = (lo + hi) // 2\n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            lo = mid + 1\n        else:\n            hi = mid - 1\n    return -1"
+  },
+  {
+    "instruction": "What is the difference between supervised fine-tuning and RLHF?",
+    "input": "",
+    "output": "Supervised fine-tuning (SFT) trains the model to mimic human-written responses by minimizing the cross-entropy loss on a dataset of (prompt, response) pairs. RLHF (Reinforcement Learning from Human Feedback) goes further: it trains a reward model on human preference comparisons, then uses RL (typically PPO) to optimize the LLM to maximize the reward signal. SFT teaches format and factual knowledge; RLHF aligns behavior with human preferences — helpfulness, harmlessness, and honesty — and is harder and more expensive to implement."
+  },
+  {
+    "instruction": "Explain what a Jupyter notebook is and its use in data science.",
+    "input": "",
+    "output": "A Jupyter notebook is an interactive computing environment that combines code, outputs, visualizations, and narrative text in a single document. Data scientists use it for exploratory data analysis — running code in cells, immediately seeing results, and iterating quickly without rerunning entire scripts. Notebooks are useful for prototyping, sharing findings, and documenting analysis. However, they're poor for production code due to hidden state, difficult testing, and version control challenges."
+  },
+  {
+    "instruction": "What is a webhook?",
+    "input": "",
+    "output": "A webhook is a way for an application to send real-time notifications to another application when an event occurs. Instead of polling (repeatedly asking 'has anything changed?'), the sender pushes an HTTP POST request to a URL you specify whenever a relevant event happens — like a payment completing or a GitHub push. Webhooks are more efficient than polling for event-driven integrations and are the foundation of many automation workflows."
+  },
+  {
+    "instruction": "What is the vanishing gradient problem?",
+    "input": "",
+    "output": "In deep networks trained with backpropagation, gradients are multiplied through each layer as they flow backward. If activation functions repeatedly squash values to small numbers (like sigmoid, which maps everything to 0-1), the gradient shrinks exponentially with depth — becoming so small that early layers learn almost nothing. Solutions include ReLU activations (gradient is 1 for positive values), residual connections (shortcuts that allow gradients to flow directly), batch normalization, and careful weight initialization."
+  },
+  {
+    "instruction": "Write a Python decorator that logs function execution time.",
+    "input": "",
+    "output": "import time\nimport functools\n\ndef timeit(func):\n    @functools.wraps(func)\n    def wrapper(*args, **kwargs):\n        start = time.perf_counter()\n        result = func(*args, **kwargs)\n        elapsed = time.perf_counter() - start\n        print(f'{func.__name__} took {elapsed:.4f}s')\n        return result\n    return wrapper"
+  }
+]

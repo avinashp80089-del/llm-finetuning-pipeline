@@ -1,0 +1,31 @@
+model_name: "microsoft/phi-2"
+output_dir: "outputs/phi2_lora"
+data_path: "data/sample_instructions.json"
+
+num_train_epochs: 3
+per_device_train_batch_size: 4
+gradient_accumulation_steps: 4
+learning_rate: 2.0e-4
+weight_decay: 0.01
+warmup_ratio: 0.03
+lr_scheduler_type: "cosine"
+max_length: 512
+
+fp16: true
+bf16: false
+
+logging_steps: 10
+eval_steps: 50
+save_steps: 100
+save_total_limit: 3
+
+report_to: "wandb"
+wandb_project: "llm-finetuning"
+
+lora:
+  r: 16
+  lora_alpha: 32
+  target_modules: ["q_proj", "v_proj", "k_proj", "out_proj"]
+  lora_dropout: 0.05
+  bias: "none"
+  load_in_4bit: false
